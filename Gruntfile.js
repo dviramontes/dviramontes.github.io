@@ -94,7 +94,8 @@ module.exports = function(grunt) {
                 base: 'dist',
                 branch: 'master',
                 message: 'Auto-generated commit',
-                repo : 'https://github.com/dviramontes/dviramontes.github.io.git',
+                // repo : 'https://github.com/dviramontes/dviramontes.github.io.git',
+                push : 'false'
             },
             src: ['**']
         }
