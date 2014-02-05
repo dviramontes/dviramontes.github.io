@@ -1,6 +1,6 @@
 .highlight {
-    background-color: #073642;
-    color: #93a1a1
+    background-color: #595959;
+    color: white;
 }
 
 .highlight .c {
@@ -182,6 +182,7 @@
 
 .highlight .nx {
     color: #b58900 !important
+    // color: lighten(#b58900) !important;
 }
 
 .highlight .bp {
