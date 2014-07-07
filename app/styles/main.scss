@@ -1,7 +1,7 @@
 //import theme
 @import "theme.scss";
 
-$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+//$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
@@ -13,20 +13,26 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 // BTS overwrites
 .btn-success{
   background-color: inherit;
-  :hover{
-    background-color: inherit;
-    border-radius: 40px;
-  }
+}
+
+.btn-success:hover{
+  background-color: inherit;
+  border-radius: 20px;
+  background-image: none;
 
 }
 
 a {
   color: $color2;
-  :hover{
-    color: white !important;
-    text-decoration: none !important;
-  }
+}
 
+.nav-pills > li > a:hover{
+  color: $color3;
+}
+
+a:hover{
+  color: white ;
+  text-decoration: none ;
 }
 
 .jumbotron{
