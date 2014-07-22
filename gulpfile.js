@@ -8,7 +8,9 @@ var $ = require('gulp-load-plugins')();
 
 gulp.task('deploy', function () {
     gulp.src("./dist/**/*")
-        .pipe(deploy());
+        .pipe(deploy({
+            branch:"master"
+        }));
 });
 
 gulp.task('styles', function () {
