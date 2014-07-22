@@ -2,9 +2,14 @@
 // generated on 2014-07-07 using generator-gulp-webapp 0.1.0
 
 var gulp = require('gulp');
-
+var deploy = require("gulp-gh-pages");
 // load plugins
 var $ = require('gulp-load-plugins')();
+
+gulp.task('deploy', function () {
+    gulp.src("./dist/**/*")
+        .pipe(deploy());
+});
 
 gulp.task('styles', function () {
     return gulp.src('app/styles/main.scss')
