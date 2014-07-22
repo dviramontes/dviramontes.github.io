@@ -9,7 +9,7 @@ var $ = require('gulp-load-plugins')();
 gulp.task('deploy', function () {
     gulp.src("./dist/**/*")
         .pipe(deploy({
-            branch:"master"
+            "branch":"master"
         }));
 });
 
