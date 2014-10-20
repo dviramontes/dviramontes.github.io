@@ -5,7 +5,8 @@ var Gallery = Gallery || {}; // ns
 "use strict";
 
 var key = 'XtnjbBbOkULcb7ePVhDNvEEjpCvx7vIm';
-var endpoint = 'http://www.behance.net/v2/users/dreampilot';
+var endpoint = 'http://www.behance.net/v2';
+var user = '/users/dreampilot/'
 
 
 
@@ -31,16 +32,19 @@ Gallery.viewModel.init = function () {
 	}.bind(this);
 }
 
-Gallery.viewModel.init();
-
 //ctlr
 Gallery.controller = function () {
 	Gallery.viewModel.init();
 }
 
+Gallery.controller();
+
 // views
 Gallery.listView = function () {
 	return m('div#list-view',[
+		m('p',[
+			m('a[href="/"]',{config: m.route}, 'Gallery')
+		]),
 		m('ul', [
 			Gallery.viewModel.list.map(function (project, index) {
 				return m('li', [
@@ -51,18 +55,7 @@ Gallery.listView = function () {
 	]);
 };
 
-//<div class="row">
-//	<div class="col-xs-6 col-md-3">
-//		<a href="#" class="thumbnail">
-//			<img data-src="holder.js/100%x180" alt="...">
-//			</a>
-//			<div class="caption">
-//				<h3>Thumbnail label</h3>
-//				<p>...</p>
-//				<p></p>
-//			</div>
-//		</div>
-//	</div>
+
 
 Gallery.thumbnailView = function () {
 	return m('div#thumbnail-view',[
@@ -77,7 +70,7 @@ Gallery.thumbnailView = function () {
 								m('br'),
 								m('span',[
 									project.fields().map(function(p){
-										return m('em', p)
+										return m('em', p + ' / ')
 									})
 								])
 							])
@@ -89,24 +82,26 @@ Gallery.thumbnailView = function () {
 	]);
 };
 
-//$.ajax(endpoint + '/projects?' + 'api_key=' + key, {
-$.ajax('./scripts/projects.json', {
-	crossDomain: false,
-	//dataType: 'jsonp'
-	dataType: 'json'
-}).error(function (xhr, status, error) {
-	return alert(error.message);
-}).success(withData);
+function getBe(url, callback){
+	$.ajax(url, {
+		//crossDomain: true,
+		crossDomain: false,
+		dataType: 'json'
+		//dataType: 'jsonp'
+	}).error(function (xhr, status, error) {
+		return alert(error.message);
+	}).success(callback);
+}
 
-function withData(data) { // process jsonp callback
-	console.info(data['http_code']);
+function buildGallery(data) { // process jsonp callback
+	//console.info(data['http_code']);
 	//console.debug(data.projects);
 	data.projects.map(function (e) {
-		console.log(e)
+		//console.log(e)
 		Gallery.viewModel.add(e);
 	});
 
-	console.log(Gallery.viewModel.list.length)
+	//console.log(Gallery.viewModel.list.length)
 	//console.log(Gallery.viewModel.list)
 
 	m.render(
@@ -118,11 +113,20 @@ function withData(data) { // process jsonp callback
 		document
 			.querySelector('#thumbnail-view'), Gallery.thumbnailView()
 	);
-
-
-	// init app
-	//m.module(document, Gallery);
 }
+
+function buildProjectView(data){
+	console.log(data)
+}
+
+// get Behance data
+getBe('./scripts/projects.json', buildGallery);
+//getBe(endpoint + '/' + user + 'projects?' + 'api_key=' + key, buildGallery);
+
+// http://www.behance.net/v2/projects/20638661?api_key=XtnjbBbOkULcb7ePVhDNvEEjpCvx7vIm
+getBe('./scripts/project.json', buildProjectView);
+//getBe(endpoint + '/projects/' + 20615143 + '?api_key=' + key, buildProjectView);
+
 
 //})(this);
 
