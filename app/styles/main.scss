@@ -33,6 +33,7 @@ a:hover {
     //  background-color:none;
 
 }
+
 // MAIN STYLE
  #page-title {
     color: $color2;
@@ -44,6 +45,7 @@ a:hover {
     padding: 0.2em 0;
 }
 /* Space out content a bit */
+
 
 body {
     padding-top: 20px;
@@ -72,6 +74,7 @@ body {
         padding-bottom: 19px;
     }
 }
+
 /* Custom page footer */
 
 .footer {
@@ -80,10 +83,17 @@ body {
     color: #777;
     //border-top:  0.1em solid #e5e5e5;
 }
-.container-narrow > hr {
-    //border-color: $color3;
-    //margin: 30px 0;
-}
+
+
+//hr {
+//  border: 0;
+//  height: 1px;
+//  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(200,100,255,0.75), rgba(0,0,0,0));
+//  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+//  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+//  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+//}
+
 /* Main marketing message and sign up button */
 
 .jumbotron {
@@ -97,10 +107,34 @@ body {
 /* Supporting marketing content */
 
 .marketing {
-    margin: 40px 0;
+    margin: 0px auto;
     p + h4 {
         margin-top: 28px;
     }
+}
+
+.thumbnail{
+  background-color: inherit;
+  border:inherit;
+  img{
+    display: inherit;
+    margin:0 auto;
+    //spadding-left: 0;
+    //margin: 0 10 0 10px;
+    //max-width:inherit;
+  }
+}
+
+.my-caption p{
+  padding-top: 5px;
+  text-align:left;
+  color:$color2;
+  padding-left: 15%;
+  em{
+    color:$color1;
+    margin-right: 10px;
+    font-size: 11px;
+  }
 }
 /* Responsive: Portrait tablets and up */
 
