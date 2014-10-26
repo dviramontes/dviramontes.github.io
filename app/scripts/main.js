@@ -24,6 +24,18 @@ function getBe(url, callback) {
     }).success(callback);
 }
 
+function getProject(id, callback) {
+    $.ajax('./scripts/project.json', {
+        //crossDomain: true,
+        crossDomain: false,
+        dataType: 'json'
+        //dataType: 'jsonp'
+    }).error(function (xhr, status, error) {
+        return alert(error.message);
+    }).success(callback);
+}
+
+
 // Gallery View-Model
 Gallery.vm = {};
 Gallery.vm.init = function () {
@@ -82,74 +94,89 @@ Gallery.view = function () {
 Gallery.controller();
 
 // get Behance data for thumbnail Gallery display
-getBe('./scripts/projects.json', function(data){
-    //console.log(data)
+getBe('./scripts/projects.json', function (data) {
     data.projects.map(function (e) {
         Gallery.vm.add(e);
     });
     m.render(document.querySelector('#main'), Gallery.view());
 });
 
+////////////////////
+//////PROJECT NS///
+
 var Project = Project || {};
-Project.module = function (data) {
-    //this.name = m.prop(data.name);
-    //this.thumbnail = m.prop(data.thumbnail);
-    //this.fields = m.prop(data.fields);
-    //this.id = m.prop(data.id);
+
+Project.name = function () {
+    this.name = m.prop();
+}
+
+Project.imgModule = function (data) {
+    this.src = m.prop(data.src);
+    this.width = m.prop(data.width);
+    this.height = m.prop(data.height);
+};
+
+Project.txtModule = function (data) {
+    this.html = m.prop(data.text);
 };
 
 Project.moduleList = Array; // project modules collection, what behance calls each sub-section of the project
 
-// Porject View-Model
+
 Project.vm = {};
 Project.vm.init = function () {
-    this.modules = new Project.moduleList();
-    this.add = function (obj) {
-        this.modules
-            .push(new Project.module({
-                "name": obj.name,
-                "thumbnail": obj.covers['202'],
-                "fields": obj.fields,
-                "id": obj.id
-            }));
+
+    this.imgModules = new Project.moduleList();
+    this.txtModules = new Project.moduleList();
+
+    this.addImageModule = function (obj) {
+        this.imgModules
+            .push(new Project.imgModule(obj));
+    }.bind(this);
+
+    this.addTextModule = function(obj){
+        this.txtModules
+            .push(new Project.txtModule(obj));
     }.bind(this);
 }
 
-//ctlr
-Project.controller = function(){
+Project.controller = function () {
     Project.vm.init();
     this.id = m.route.param("id");
-
+    getProject(this.id, function (data) {
+        //Project.name(data.project.name);
+        data.project.modules.map(function (m) {
+            //console.log(m)
+            if(m.type === 'image') Project.vm.addImageModule(m);
+            if(m.type === 'text')  Project.vm.addTextModule(m);
+        });
+        m.render(document.querySelector('#main'), Project.view());
+    });
 };
 
-Project.view = function(params){
-    //console.log(id)
-    var moduleData  = [];
-    getProject(params.id, function(data){
-        //console.log(data);
-        data.project.modules.forEach(function(m){
-            moduleData.push(m);
-        });
-        console.log(moduleData)
-    })
+Project.view = function (params) {
+    //console.log(params)
+    //console.log(Project.vm.imgModules)
+    return m("div", [
+        Project.vm.txtModules.map(function(e){
+            return m('div', m.trust(e.html())); // !!!holy shit that was easy!!!
+        }),
+        Project.vm.imgModules.map(function(e){
+            return m('img', {
+                src: e.src(),
+                width: e.width(),
+                height: e.height()
+            })
+        })
+    ]);
 
-    return m("h1", "test " + params.id)
 }
+
+
 
 m.route(document.querySelector('#main'), "/", {
-    "/" : Gallery,
-    "/project/:id": Project
+    "/": Gallery,
+    "/project/:id" : Project
 });
-
-function getProject(id, callback){
-    $.ajax('./scripts/project.json', {
-        //crossDomain: true,
-        crossDomain: false,
-        dataType: 'json'
-        //dataType: 'jsonp'
-    }).error(function (xhr, status, error) {
-        return alert(error.message);
-    }).success(callback);
-}
 
 
