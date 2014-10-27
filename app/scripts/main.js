@@ -1,12 +1,10 @@
 //(function (global) {
-////////////////////
-//////GALLERY NS///
 
-    var Gallery = Gallery || {};
+    var Gallery = Gallery || {}; // ns
 
     var key = 'XtnjbBbOkULcb7ePVhDNvEEjpCvx7vIm';
     var endpoint = 'http://www.behance.net/v2';
-    var user = '/users/dreampilot/'
+    var user = '/users/dreampilot/';
 
     Gallery.Project = function (data) {
         this.name = m.prop(data.name);
@@ -15,7 +13,7 @@
         this.id = m.prop(data.id);
     };
 
-    Gallery.projectList = Array; // projects collection
+        Gallery.projectList = Array; // projects collection
 
     function getBe(url, callback) {
         $.ajax(url, {
@@ -152,7 +150,7 @@
             this.videoModules
                 .push(new Project.videoModule(obj));
         }.bind(this);
-    }
+    };
 
     Project.controller = function () {
         Project.vm.init();
@@ -160,33 +158,33 @@
         getProject(this.id, function (data) {
             //Project.name(data.project.name);
             data.project.modules.map(function (m) {
-                console.log(m)
                 if (m.type === 'image') Project.vm.addImageModule(m);
                 if (m.type === 'text')  Project.vm.addTextModule(m);
-                if (m.type === 'embed')  Project.vm.addVideoModule(m);
+                if (m.type === 'embed') Project.vm.addVideoModule(m);
             });
             m.render(document.querySelector('#main'), Project.view());
         });
     };
 
     Project.view = function (params) {
-        return m("div", {class:"col-lg-6 module"},[
+        return m("div", {class:"col-lg-6 col-sm-12 col-xs-12 module"},[
             Project.vm.txtModules.map(function (e) {
                 return m('div', m.trust(e.html()));
             }),
             Project.vm.imgModules.map(function (e) {
                 return m('img', {
                     src: e.src(),
+                    class : 'img-responsive',
                     width: e.width(),
                     height: e.height()
                 })
             }),
             Project.vm.videoModules.map(function (e) {
-                return m('div', m.trust(e.embed()));
-            }),
+                return m('div',m.trust(e.embed()));
+            })
         ]);
 
-    }
+    };
 
     m.route(document.querySelector('#main'), "/", {
         "/": Gallery,
