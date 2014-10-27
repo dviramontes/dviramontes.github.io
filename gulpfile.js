@@ -106,6 +106,9 @@ gulp.task('serve', ['connect', 'styles'], function () {
 gulp.task('wire', function () {
     var wiredep = require('wiredep').stream;
 
+    gulp.src('app/scripts/*.json')
+        .pipe(gulp.dest('dist/scripts'))
+
     gulp.src('app/styles/*.scss')
         .pipe(wiredep({
             directory: 'app/bower_components'

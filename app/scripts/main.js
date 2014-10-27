@@ -1,4 +1,4 @@
-//(function (global) {
+(function (global) {
 
     var Gallery = Gallery || {}; // ns
 
@@ -186,9 +186,34 @@
 
     };
 
+    //<div class="col-lg-6">
+    //<div class="jumbotron">
+    //<h1>Hi</h1>
+    //<p class="lead">My name is David A. Viramontes and sometimes I use the mon·i·ker:
+    //    <em>dreamPilot</em>. I use the web as my idea-<a href="http://www.matrixsynth.com/">syntheziser</a>
+    //to <a href="https://www.behance.net/dreamPilot">draw</a>, <a href="http://cycling74.com">patch</a>
+    //<a href="https://soundcloud.com/dreampilot"> noise</a> and write <a href="https://github.com/dviramontes">code</a>.
+    //<a href="http://lambda-the-ultimate.org"> I love programming languages</a> and right now i'm a big fan of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">JavaScript</a>
+    //and <a href="https://github.com/clojure/clojurescript">ClojureScript</a>. If you any of that sounds interesting to you, don't hesitate to <a href="mailto:dviramontes@gmail.com">to get in touch</a>.
+    //</p>
+    //</div>
+    //</div>
+
     m.route(document.querySelector('#main'), "/", {
         "/": Gallery,
-        "/project/:id": Project
+        "/project/:id": Project,
+        "/about" : {
+            controller: function(){
+                m.render(document.querySelector('#main'), this.view());
+            },
+            view : function(){
+                return m('div', {class:"col-lg-6"},[
+                  m('div', {class:"jumbotron"},[
+                      m('h1', "Hi")
+                  ])
+                ])
+            }
+        }
     });
 
-//})(this);
+})(this);
