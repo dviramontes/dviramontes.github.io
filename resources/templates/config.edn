@@ -12,7 +12,7 @@
  :post-date-format   "yyyy-MM-dd"
  :sass-src           nil
  :sass-dest          nil
- :theme              "blue"
+ :theme              "blue_centered"
  :resources          ["img"]
  :keep-files         [".git"]
  :disqus?            false
