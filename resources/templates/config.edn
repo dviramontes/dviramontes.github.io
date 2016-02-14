@@ -1,7 +1,7 @@
-{:site-title         "blog.herebedragons.space"
+{:site-title         "dviramontes.github.io"
  :author             "David Viramontes"
  :description        "..."
- :site-url           "http://blog.herebedragons.space/"
+ :site-url           "http://dviramontes.github.io"
  :post-root          "posts"
  :tag-root           "tags"
  :page-root          "pages"
@@ -15,8 +15,8 @@
  :theme              "dviramontes"
  :resources          ["img" "css"]
  :keep-files         [".git"]
- :disqus?            false
- :disqus-shortname   ""
+ :disqus?            true
+ :disqus-shortname   "dviramontes.disqus.com"
  :ignored-files      [#"\.#.*" #".*\.swp$"]
  :posts-per-page     5
  :blocks-per-preview 2
