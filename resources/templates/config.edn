@@ -1,6 +1,6 @@
 {:site-title         "blog.herebedragons.space"
  :author             "David Viramontes"
- :description        "This blog is awesome"
+ :description        "..."
  :site-url           "http://blog.herebedragons.space/"
  :post-root          "posts"
  :tag-root           "tags"
@@ -10,10 +10,10 @@
  :rss-filters        ["cryogen"]
  :recent-posts       3
  :post-date-format   "yyyy-MM-dd"
- :sass-src           nil
- :sass-dest          nil
- :theme              "blue_centered"
- :resources          ["img"]
+ :sass-src           "resources/templates/sass"
+ :sass-dest          "resources/templates/css"
+ :theme              "dviramontes"
+ :resources          ["img" "css"]
  :keep-files         [".git"]
  :disqus?            false
  :disqus-shortname   ""
