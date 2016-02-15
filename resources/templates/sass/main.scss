@@ -154,7 +154,6 @@ body {
 
 footer {
   font-size: 14px;
-  text-align: center;
   padding-top: 75px;
   padding-bottom: 30px;
 }
@@ -240,4 +239,9 @@ pre, code, .hljs {
     float: left;
     text-align: left;
   }
+}
+
+.social {
+  width: 25px;
+  border: none;
 }

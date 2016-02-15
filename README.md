@@ -9,3 +9,7 @@ deploying to s3:
 cryogen docs:
 
 [http://cryogenweb.org/](http://cryogenweb.org/)
+
+Sass compile:
+
+`node-sass -w resources/templates/sass/main.scss resources/templates/css/main.css`
