@@ -7,8 +7,8 @@
 - - -
 
 Recently I was asked what the difference between
-[JavaScript's map function](https://www.google.com/search?q=mdn%20map) 
-vs [ClojureScript's map function](http://clojuredocs.org/clojure.core/map). 
+[JavaScript's map function](https://www.google.com/search?q=mdn%20map)
+vs [ClojureScript's map function](http://clojuredocs.org/clojure.core/map).
 
 I thought I would write this blog 	post to sort out the differences for myself.
 
@@ -41,23 +41,23 @@ f should accept number-of-colls arguments. Returns a transducer when
 no collection is provided.
 
 Source: **Clojure-Docs**.
-  
 
-If we just skip the bit about transducers in Clojure for a moment[<sup>1</sup>](#1), we can say that they both deal with applying f to every item in a collection. At their core they are both immutable, one by design (Clojure) and the other more by good practices[<sup>1</sup>](#2).
+
+If we just skip the bit about transducers in Clojure for a moment[<sup>1</sup>](#1), we can say that they both deal with applying f to every item in a collection. At their core they are produce immutable results. In the case of Clojure this is by design and in Javascript is more by adopting best practices[<sup>1</sup>](#2).
 
 ...
 
-```javascript
-oh you caught me!
-This post is a work in progress.
-The reaons is up is that i've asked someone to help me review its contents.
+```
+oh you caught me! :)
+---This post is a work in progress---
+The reason is up is that i've asked someone to help me review its contents.
 Please come back soon!
 
 ```
 
 - - -
 <small>
-<a name="1">1. </a>[Refer to this post about transducers in JavaScript.](http://jlongster.com/Transducers.js--A-JavaScript-Library-for-Transformation-of-Data)
+<a name="1">1. </a>[See this post about transducers in JavaScript.](http://jlongster.com/Transducers.js--A-JavaScript-Library-for-Transformation-of-Data)
 
-<a name="2">2. </a> The other big difference is that in Clojure, these data structures are immutable by default where as in [JavaScript we have to do a bit more work to get this level of simplicity working.](https://facebook.github.io/immutable-js/)
+<a name="2">2. </a>[In JavaScript we have to do a bit more work to get this level of simplicity working.](https://facebook.github.io/immutable-js/)
 </small>
