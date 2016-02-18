@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss version='2.0' xmlns:atom='http://www.w3.org/2005/Atom'>
+<channel>
+<atom:link href='http://dviramontes.github.io' rel='self' type='application/rss+xml'/>
+<title>
+dviramontes.github.io
+</title>
+<link>
+http://dviramontes.github.io
+</link>
+<description>
+...
+</description>
+<lastBuildDate>
+Thu, 18 Feb 2016 00:46:07 -0700
+</lastBuildDate>
+<generator>
+clj-rss
+</generator>
+<item>
+<guid>
+http://dviramontes.github.io/posts/2016-02-15-first-post.html
+</guid>
+<link>
+http://dviramontes.github.io/posts/2016-02-15-first-post.html
+</link>
+<title>
+(map ,,,) vs [...].map(v =&gt; v)
+</title>
+<description>
+&lt;h3&gt;&lt;a name=&quot;&lt;em&gt;a&amp;#95;case&amp;#95;for&amp;#95;even&amp;#95;higher-order&amp;#95;abstractions&lt;/em&gt;&quot;&gt;&lt;/a&gt;&lt;em&gt;A case for even higher-order abstractions&lt;/em&gt;&lt;/h3&gt;&lt;hr/&gt;&lt;p&gt;Recently I was asked what the difference between &lt;a href='https://www.google.com/search?q=mdn%20map'&gt;JavaScript's map function&lt;/a&gt;  vs &lt;a href='http://clojuredocs.org/clojure.core/map'&gt;ClojureScript's map function&lt;/a&gt;. &lt;/p&gt;&lt;p&gt;I thought I would write this blog 	post to sort out the differences for myself.&lt;/p&gt;&lt;p&gt;While you might be thinking:&lt;blockquote&gt;&lt;p&gt; well, isn't this comparing apples to oranges?  &lt;/p&gt;&lt;/blockquote&gt;JavaScript and ClojureScript're are, after all, different languages.&lt;/p&gt;&lt;p&gt;To which I would say that as long as they are both sold to us as a general way to do function composition; we can compare them to see if one is &lt;em&gt;better&lt;/em&gt; suited for a particular set of problems more than the other (Note: this will not be a comparison of space/time operation or language implementation, there are better places to find that sort of thing).&lt;/p&gt;&lt;p&gt;On the surface they promise to solve similar problems:&lt;/p&gt;&lt;h4&gt;&lt;a name=&quot;javascript's&amp;#95;map&quot;&gt;&lt;/a&gt;Javascript's Map&lt;/h4&gt;&lt;blockquote&gt;&lt;p&gt; The map() method creates a new array with the results of calling a provided function on every element in this array. &lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;Source &lt;strong&gt;Mozilla Developers Network&lt;/strong&gt;.&lt;/p&gt;&lt;hr/&gt;&lt;h4&gt;&lt;a name=&quot;clojure's&amp;#95;map&quot;&gt;&lt;/a&gt;Clojure's Map&lt;/h4&gt;&lt;blockquote&gt;&lt;p&gt; Returns a lazy sequence consisting of the result of applying f to the set of first items of each coll, followed by applying f to the set of second items in each coll, until any one of the colls is exhausted.  Any remaining items in other colls are ignored. Function f should accept number-of-colls arguments. Returns a transducer when no collection is provided. &lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;Source: &lt;strong&gt;Clojure-Docs&lt;/strong&gt;.   &lt;/p&gt;&lt;p&gt;If we just skip the bit about transducers in Clojure for a moment&lt;a href='#1'&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, we can say that they both deal with applying f to every item in a collection. At their core they are both immutable, one by design (Clojure) and the other more by good practices&lt;a href='#2'&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;...&lt;/p&gt;&lt;pre&gt;&lt;code&gt;
+oh you caught me! :&amp;#41;
+---This post is a work in progress---
+The reaons is up is that i've asked someone to help me review its contents.
+Please come back soon!
+
+&lt;/code&gt;&lt;/pre&gt;&lt;hr/&gt;&lt;small&gt;&lt;a name=&quot;1&quot;&gt;1. &lt;/a&gt;&lt;a href='http://jlongster.com/Transducers.js&amp;ndash;A-JavaScript-Library-for-Transformation-of-Data'&gt;Refer to this post about transducers in JavaScript.&lt;/a&gt;&lt;p&gt;&lt;a name=&quot;2&quot;&gt;2. &lt;/a&gt; The other big difference is that in Clojure, these data structures are immutable by default where as in &lt;a href='https://facebook.github.io/immutable-js/'&gt;JavaScript we have to do a bit more work to get this level of simplicity working.&lt;/a&gt; &lt;/small&gt;&lt;/p&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Mon, 15 Feb 2016 00:00:00 -0700
+</pubDate>
+</item>
+</channel>
+</rss>
