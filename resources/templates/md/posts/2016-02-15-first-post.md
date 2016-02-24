@@ -7,8 +7,7 @@
 - - -
 
 Recently I was asked what the difference between
-[JavaScript's map function](https://www.google.com/search?q=mdn%20map)
-vs [ClojureScript's map function](http://clojuredocs.org/clojure.core/map).
+**JavaScript's map function** vs **ClojureScript's map function**.
 
 I thought I would write this blog 	post to sort out the differences for myself.
 
@@ -16,9 +15,9 @@ I thought I would write this blog 	post to sort out the differences for myself.
 While you might be thinking:
 > well, isn't this comparing apples to oranges?
 
-JavaScript and ClojureScript're are, after all, different languages.
+JavaScript and ClojureScript are, after all, different languages.
 
-To which I would say that as long as they are both sold to us as a general way to do function composition; we can compare them to see if one is *better* suited for a particular set of problems more than the other (Note: this will not be a comparison of space/time operation or language implementation, there are better places to find that sort of thing).
+To which I would say that as long as they are both sold to us as data transformation functions, we can compare them for their power of abstraction. Moreover, [ClojureScript is a hosted language on top of JavaScript](http://clojure.org/about/clojurescript), so it ought to be able to do all of the things that JavaScript can do plus some, as we'll see later on.
 
 
 On the surface they promise to solve similar problems:
@@ -27,7 +26,7 @@ On the surface they promise to solve similar problems:
 
 > The map() method creates a new array with the results of calling a provided function on every element in this array.
 
-Source **Mozilla Developers Network**.
+Source **[Mozilla Developers Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)**.
 
 - - -
 
@@ -40,24 +39,19 @@ exhausted.  Any remaining items in other colls are ignored. Function
 f should accept number-of-colls arguments. Returns a transducer when
 no collection is provided.
 
-Source: **Clojure-Docs**.
+Source: **[Clojure-Docs](http://clojuredocs.org/clojure.core/map)**.
 
 
-If we just skip the bit about transducers in Clojure for a moment[<sup>1</sup>](#1), we can say that they both deal with applying f to every item in a collection. At their core they are produce immutable results. In the case of Clojure this is by design and in Javascript is more by adopting best practices[<sup>1</sup>](#2).
+If we just skip the bit about transducers in Clojure for a moment[<sup>1</sup>](#1), we can say that they both deal with applying `f` to every item in a `collection`. At their core they both produce immutable results. In Clojure this is by design and in Javascript's case this can be achieved by adopting best practices [<sup>2</sup>](#2).
 
-...
-
-```
-oh you caught me! :)
----This post is a work in progress---
-The reason is up is that i've asked someone to help me review its contents.
-Please come back soon!
-
-```
-
+In practice:
+<a class="jsbin-embed" href="http://jsbin.com/ledobiq/embed?js,console">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.9"></script>
 - - -
 <small>
 <a name="1">1. </a>[See this post about transducers in JavaScript.](http://jlongster.com/Transducers.js--A-JavaScript-Library-for-Transformation-of-Data)
 
-<a name="2">2. </a>[In JavaScript we have to do a bit more work to get this level of simplicity working.](https://facebook.github.io/immutable-js/)
+<a name="2">2. </a>
+[See immutable.js](https://facebook.github.io/immutable-js/) and 
+[seemless-immutable](https://github.com/rtfeldman/seamless-immutable) and 
+[mori](https://github.com/swannodette/mori)
 </small>
