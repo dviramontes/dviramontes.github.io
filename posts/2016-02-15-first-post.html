@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>dviramontes.github.io: (map ,,,) vs [...].map(v =&gt; v)</title>
+    <title>dviramontes.github.io: The power of representations</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
@@ -58,7 +58,7 @@
                         <li class="divider"></li>
                         <li class="dropdown-header">Recent Posts</li>
                         
-                        <li><a href="/posts/2016-02-15-first-post.html">(map ,,,) vs [...].map(v =&gt; v)</a></li>
+                        <li><a href="/posts/2016-02-15-first-post.html">The power of representations</a></li>
                         
                         
 
@@ -66,9 +66,11 @@
                         <li class="divider"></li>
                         <li class="dropdown-header">Tags</li>
                         
-                        <li><a href="/tags/clojure.html">clojure</a></li>
+                        <li><a href="/tags/representations.html">representations</a></li>
                         
-                        <li><a href="/tags/javascript.html">javascript</a></li>
+                        <li><a href="/tags/powerful-ideas.html">powerful-ideas</a></li>
+                        
+                        <li><a href="/tags/brett-victor.html">brett-victor</a></li>
                         
                         
                     </ul>
@@ -90,25 +92,21 @@
         <div class="col-lg-6">February 15, 2016</div>
         
     </div>
-    <h2>(map ,,,) vs [...].map(v =&gt; v)</h2>
+    <h2>The power of representations</h2>
 </div>
 <div>
     
-    <h3><a name="<em>a&#95;case&#95;for&#95;even&#95;higher-order&#95;abstractions</em>"></a><em>A case for even higher-order abstractions</em></h3><hr/><p>Recently I was asked what the difference between <a href='https://www.google.com/search?q=mdn%20map'>JavaScript's map function</a>  vs <a href='http://clojuredocs.org/clojure.core/map'>ClojureScript's map function</a>. </p><p>I thought I would write this blog 	post to sort out the differences for myself.</p><p>While you might be thinking:<blockquote><p> well, isn't this comparing apples to oranges?  </p></blockquote>JavaScript and ClojureScript're are, after all, different languages.</p><p>To which I would say that as long as they are both sold to us as a general way to do function composition; we can compare them to see if one is <em>better</em> suited for a particular set of problems more than the other (Note: this will not be a comparison of space/time operation or language implementation, there are better places to find that sort of thing).</p><p>On the surface they promise to solve similar problems:</p><h4><a name="javascript's&#95;map"></a>Javascript's Map</h4><blockquote><p> The map() method creates a new array with the results of calling a provided function on every element in this array. </p></blockquote><p>Source <strong>Mozilla Developers Network</strong>.</p><hr/><h4><a name="clojure's&#95;map"></a>Clojure's Map</h4><blockquote><p> Returns a lazy sequence consisting of the result of applying f to the set of first items of each coll, followed by applying f to the set of second items in each coll, until any one of the colls is exhausted.  Any remaining items in other colls are ignored. Function f should accept number-of-colls arguments. Returns a transducer when no collection is provided. </p></blockquote><p>Source: <strong>Clojure-Docs</strong>.   </p><p>If we just skip the bit about transducers in Clojure for a moment<a href='#1'><sup>1</sup></a>, we can say that they both deal with applying f to every item in a collection. At their core they are both immutable, one by design (Clojure) and the other more by good practices<a href='#2'><sup>1</sup></a>.</p><p>...</p><pre><code>
-oh you caught me! :&#41;
----This post is a work in progress---
-The reaons is up is that i've asked someone to help me review its contents.
-Please come back soon!
-
-</code></pre><hr/><small><a name="1">1. </a><a href='http://jlongster.com/Transducers.js&ndash;A-JavaScript-Library-for-Transformation-of-Data'>Refer to this post about transducers in JavaScript.</a><p><a name="2">2. </a> The other big difference is that in Clojure, these data structures are immutable by default where as in <a href='https://facebook.github.io/immutable-js/'>JavaScript we have to do a bit more work to get this level of simplicity working.</a> </small></p>
+    <p><iframe src="https://player.vimeo.com/video/115154289?title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/115154289">The Humane Representation of Thought</a> from <a href="https://vimeo.com/worrydream">Bret Victor</a> on <a href="https://vimeo.com">Vimeo</a>.</p></p><blockquote><p> Representations, or the way we externalize thought,<br />have been largely responsible for the intellectual<br />progress of humanity of the last 2000 years.<br />&ndash; Brett Victor </p></blockquote>
 </div>
 
 <div id="post-tags">
     <b>Tags: </b>
     
-    <a href="/tags/clojure.html">clojure</a>
+    <a href="/tags/representations.html">representations</a>
     
-    <a href="/tags/javascript.html">javascript</a>
+    <a href="/tags/powerful-ideas.html">powerful-ideas</a>
+    
+    <a href="/tags/brett-victor.html">brett-victor</a>
     
 </div>
 
